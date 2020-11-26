@@ -1,0 +1,28 @@
+名称：JD_plantBean
+
+在：
+  时间表：
+    - cron的：' 0 * * * * '
+  观看：
+    类型：[开始]
+职位：
+  建立：
+    运行：ubuntu-latest
+    步骤：
+      -名称：结帐
+        用途：actions / checkout @ v2
+        
+      -名称：“设置Python ”
+        用途：actions / setup-python @ v1
+        与：
+          python版本：3.7
+         
+      -名称：“安装要求”
+        运行：pip install -r ./requirements.txt
+        
+      -名称：' run种豆得豆' 
+        运行：python3 jd_plantBean.py
+        env：
+            JD_COOKIE：$ {{ secrets.JD_COOKIE }}
+     
+    
